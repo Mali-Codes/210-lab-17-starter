@@ -11,7 +11,6 @@ struct Node {
 void addToFront(Node*& head, float value);
 void deleteNode(Node*& head, int entry);
 void insertNode(Node*& head, int entry, float value);
-void addToTail(Node*& head, float value);
 void deleteList(Node*& head);
 void output(Node *);
 
@@ -139,4 +138,3 @@ void deleteList(Node*& head) { //pulled this from previous code I mentioned in c
         }
         head = nullptr;
     }
-
