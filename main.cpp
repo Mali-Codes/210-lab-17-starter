@@ -8,6 +8,7 @@ struct Node {
     Node *next;
 };
 
+void addToFront(Node*& head, float value);
 void output(Node *);
 
 int main() {
@@ -17,21 +18,8 @@ int main() {
     // create a linked list of size SIZE with random numbers 0-99
     for (int i = 0; i < SIZE; i++) {
         int tmp_val = rand() % 100;
-        Node *newVal = new Node;
-        
-        // adds node at head
-        if (!head) { // if this is the first node, it's the new head
-            head = newVal;
-            newVal->next = nullptr;
-            newVal->value = tmp_val;
-        }
-        else { // its a second or subsequent node; place at the head
-            newVal->next = head;
-            newVal->value = tmp_val;
-            head = newVal;
-        }
-    }
-    output(head);
+        addToFront(head, tmp_val);
+        output(head);
 
     // deleting a node
     Node * current = head;
@@ -113,4 +101,16 @@ void output(Node * hd) {
     cout << endl;
 }
 
-// Checking in a comment to trigger a build
+void addToFront(Node*& head, float value) {
+    Node *newVal = new Node;
+    newVal->value = value;
+    
+    if (!head) { 
+        head = newVal;
+        newVal->next = nullptr;
+    }
+    else { 
+        newVal->next = head;
+        head = newVal;
+    }
+}
