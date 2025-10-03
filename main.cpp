@@ -99,18 +99,18 @@ void addToFront(Node*& head, float value) {
     }
 }
 
-void addToTail(Node*& head, float value) {
-     Node *newNode = new Node;
-    newNode->value = value;
-    newNode->next = nullptr;
+// void addToTail(Node*& head, float value) {
+//      Node *newNode = new Node;
+//     newNode->value = value;
+//     newNode->next = nullptr;
 
-    if (!head) {
-        head = newNode;
-        return;
-    }
+//     if (!head) {
+//         head = newNode;
+//         return;
+//     }
 
-    Node *current = head;
-}
+//     Node *current = head;
+// }
 
 
 // delete a node at a specific position
