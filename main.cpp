@@ -10,6 +10,7 @@ struct Node {
 
 void addToFront(Node*& head, float value);
 void deleteNode(Node*& head, int entry);
+void insertNode(Node*& head, int entry, float value);
 void output(Node *);
 
 int main() {
@@ -123,8 +124,24 @@ void deleteNode(Node*& head, int entry) {
         }
     }
 }
-    //  if (current) {  // checks for current to be valid before deleting the node
-    //     prev->next = current->next;
-    //     delete current;
-    //     current = nullptr;
-    // }
+
+void insertNode(Node*& head, int entry, float value) {
+    if (!head || entry <= 0) return;
+
+    Node* current = head;           // just following the code pattern
+    Node* prev = head;
+
+    for (int i = 0; i < entry; i++) {
+        if (i == 0)
+            current = current->next;    // using same pattern
+        else {
+            current = current->next;
+            prev = prev->next;
+        }
+    }
+
+    Node* newnode = new Node;
+    newnode-current = value;
+    newnode->next = value;
+    prev->next = newnode;
+}
