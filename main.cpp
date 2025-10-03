@@ -31,58 +31,39 @@ int main() {
     deleteNode(head , entry);
     output(head);
 
-    // traverse that many times and delete that node
-    current = head;
-    Node *prev = head;
-    for (int i = 0; i < (entry-1); i++)
-        if (i == 0)
-            current = current->next;
-        else {
-            current = current->next;
-            prev = prev->next;
-        }
-    // at this point, delete current and reroute pointers
-    if (current) {  // checks for current to be valid before deleting the node
-        prev->next = current->next;
-        delete current;
-        current = nullptr;
-    }
-    output(head);
+    // // insert a node
+    // cout << "After which node to insert 10000? " << endl;
+    // count = 1;
+    // while (current) {
+    //     cout << "[" << count++ << "] " << current->value << endl;
+    //     current = current->next;
+    // }
+    // cout << "Choice --> ";
+    // cin >> entry;
 
-    // insert a node
-    current = head;
-    cout << "After which node to insert 10000? " << endl;
-    count = 1;
-    while (current) {
-        cout << "[" << count++ << "] " << current->value << endl;
-        current = current->next;
-    }
-    cout << "Choice --> ";
-    cin >> entry;
+    // current = head;
+    // prev = head;
+    // for (int i = 0; i < (entry); i++)
+    //     if (i == 0)
+    //         current = current->next;
+    //     else {
+    //         current = current->next;
+    //         prev = prev->next;
+    //     }
+    // //at this point, insert a node between prev and current
+    // Node * newnode = new Node;
+    // newnode->value = 10000;
+    // newnode->next = current;
+    // prev->next = newnode;
+    // output(head);
 
-    current = head;
-    prev = head;
-    for (int i = 0; i < (entry); i++)
-        if (i == 0)
-            current = current->next;
-        else {
-            current = current->next;
-            prev = prev->next;
-        }
-    //at this point, insert a node between prev and current
-    Node * newnode = new Node;
-    newnode->value = 10000;
-    newnode->next = current;
-    prev->next = newnode;
-    output(head);
-
-    // deleting the linked list
-    current = head;
-    while (current) {
-        head = current->next;
-        delete current;
-        current = head;
-    }
+    // // deleting the linked list
+    // current = head;
+    // while (current) {
+    //     head = current->next;
+    //     delete current;
+    //     current = head;
+    // }
     head = nullptr;
     output(head);
 
@@ -118,12 +99,32 @@ void addToFront(Node*& head, float value) {
     }
 }
 
+// delete a node at a specific position
 void deleteNode(Node*& head, int entry) {
-    if (head || entry < 1) // checks for head to be valid and entry to be valid
-        return;
-    if (entry = 1 {
-        Node* remp = head;
-        head = head to next;
+    if (!head || entry <= 0) return;
+    
+    // special case: deleting the first node
+    if (entry == 1) {
+        Node* temp = head;
+        head = head->next;
+        delete temp;
         return;
     }
+
+    Node* current = head;
+    Node* prev = head;
+
+    for (int i = 0; i < entry; i++) {
+        if (i ==0)
+        current = current->next;
+        else {
+            current = current->next;
+            prev = prev->next;
+        }
+    }
 }
+    //  if (current) {  // checks for current to be valid before deleting the node
+    //     prev->next = current->next;
+    //     delete current;
+    //     current = nullptr;
+    // }
