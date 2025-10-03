@@ -9,6 +9,7 @@ struct Node {
 };
 
 void addToFront(Node*& head, float value);
+void deleteNode(Node*& head, int entry);
 void output(Node *);
 
 int main() {
@@ -22,12 +23,13 @@ int main() {
         output(head);
 
     // deleting a node
-    Node * current = head;
     cout << "Which node to delete? " << endl;
     output(head);
     int entry;
     cout << "Choice --> ";
     cin >> entry;
+    deleteNode(head , entry);
+    output(head);
 
     // traverse that many times and delete that node
     current = head;
@@ -85,6 +87,7 @@ int main() {
     output(head);
 
     return 0;
+    }
 }
 
 void output(Node * hd) {
@@ -112,5 +115,15 @@ void addToFront(Node*& head, float value) {
     else { 
         newVal->next = head;
         head = newVal;
+    }
+}
+
+void deleteNode(Node*& head, int entry) {
+    if (head || entry < 1) // checks for head to be valid and entry to be valid
+        return;
+    if (entry = 1 {
+        Node* remp = head;
+        head = head to next;
+        return;
     }
 }
