@@ -23,7 +23,7 @@ int main() {
         int tmp_val = rand() % 100;
         addToFront(head, tmp_val);
     }
-        output(head);
+    output(head);
 
     // deleting a node
     cout << "Which node to delete? " << endl;
@@ -41,22 +41,6 @@ int main() {
     cin >> entry;
     insertNode(head, entry, 10000);
     output(head);
-
-    // current = head;
-    // prev = head;
-    // for (int i = 0; i < (entry); i++)
-    //     if (i == 0)
-    //         current = current->next;
-    //     else {
-    //         current = current->next;
-    //         prev = prev->next;
-    //     }
-    // //at this point, insert a node between prev and current
-    // Node * newnode = new Node;
-    // newnode->value = 10000;
-    // newnode->next = current;
-    // prev->next = newnode;
-    // output(head);
 
     // // deleting the linked list
     // current = head;
