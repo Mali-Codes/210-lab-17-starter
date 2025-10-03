@@ -21,6 +21,7 @@ int main() {
     for (int i = 0; i < SIZE; i++) {
         int tmp_val = rand() % 100;
         addToFront(head, tmp_val);
+    }
         output(head);
 
     // deleting a node
@@ -34,7 +35,7 @@ int main() {
 
     // insert a node
     cout << "After which node to insert 10000? " << endl;
-    count = 1;
+    output(head);
     cout << "Choice --> ";
     cin >> entry;
     insertNode(head, entry, 10000);
@@ -67,8 +68,8 @@ int main() {
     output(head);
 
     return 0;
-    }
 }
+
 
 void output(Node * hd) {
     if (!hd) {
@@ -110,16 +111,23 @@ void deleteNode(Node*& head, int entry) {
         return;
     }
 
+    // traverse that many times and delete that node
     Node* current = head;
     Node* prev = head;
-
-    for (int i = 0; i < entry; i++) {
-        if (i ==0)
-        current = current->next;
+    
+    for (int i = 0; i < (entry - 1); i++) {
+        if (i == 0)
+            current = current->next;
         else {
             current = current->next;
             prev = prev->next;
         }
+    }
+    
+    if (current) {                          // forgot the delete part
+        prev->next = current->next;         // was getting rid of the node but not deleting it
+        delete current;
+        current = nullptr;
     }
 }
 
@@ -139,7 +147,7 @@ void insertNode(Node*& head, int entry, float value) {
     }
 
     Node* newnode = new Node;
-    newnode-current = value;
-    newnode->next = value;
+    newnode->value = value;
+    newnode->next = current;
     prev->next = newnode;
 }
