@@ -11,6 +11,7 @@ struct Node {
 void addToFront(Node*& head, float value);
 void deleteNode(Node*& head, int entry);
 void insertNode(Node*& head, int entry, float value);
+void addToTail(Node*& head, float value);
 void output(Node *);
 
 int main() {
@@ -70,7 +71,6 @@ int main() {
     return 0;
 }
 
-
 void output(Node * hd) {
     if (!hd) {
         cout << "Empty list.\n";
@@ -98,6 +98,20 @@ void addToFront(Node*& head, float value) {
         head = newVal;
     }
 }
+
+void addToTail(Node*& head, float value) {
+     Node *newNode = new Node;
+    newNode->value = value;
+    newNode->next = nullptr;
+
+    if (!head) {
+        head = newNode;
+        return;
+    }
+
+    Node *current = head;
+}
+
 
 // delete a node at a specific position
 void deleteNode(Node*& head, int entry) {
